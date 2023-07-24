@@ -12,6 +12,7 @@ Page numbers are 1-indexed, i.e. the first page is page 1.
 
 from typing import Tuple
 
+
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     return a tuple of size two containing a start index and an end
