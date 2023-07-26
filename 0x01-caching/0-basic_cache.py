@@ -5,6 +5,7 @@ and is a caching system:
 """
 from base_caching import BaseCaching
 
+
 class BasicCache(BaseCaching):
     """
     Basic caching system
@@ -12,6 +13,7 @@ class BasicCache(BaseCaching):
 
     def __init__(self):
         super().__init__()
+
     def put(self, key, item):
         """
         assign the value of a key to the cache_data attribute if the
