@@ -23,6 +23,8 @@ class LRUCache(BaseCaching):
         assign the value of a key to the cache_data attribute if the
         parent class
         """
+        if key is None or item is None:
+            return
         self.cache_data[key] = item
         if len(self.cache_data.keys()) > BaseCaching.MAX_ITEMS:
             key_to_del = self.order_list[self.put_count]
