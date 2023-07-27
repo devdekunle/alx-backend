@@ -28,8 +28,6 @@ class LIFOCache(BaseCaching):
                 print("DISCARD: {}".format(last_key))
             self.cache_data[key] = item
 
-
-
     def get(self, key):
         "get the value for a key from a cache"
         if key and key in self.cache_data.keys():
