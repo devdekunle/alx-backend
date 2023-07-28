@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 """
 Deletion-resilient hypermedia pagination
@@ -41,6 +41,9 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """
+        implementing hyper_index
+        """
         assert index is None or index >= 0
         assert page_size > 0
 
