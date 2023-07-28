@@ -72,8 +72,10 @@ class Server:
         returned_page_size = len(data)
         all_data = self.dataset()
         beg_to_currpage = page * page_size
-        rem_page = len(all_data) - len(all_data[:beg_to_currpage])
-        next_page = page + 1 if rem_page < len(all_data) else None
+        if len(all_data[:beg_to_currpage]) < len(all_data):
+            next_page = page + 1
+        else:
+            next_page = None
         prev_page = page - 1 if page > 1 else None
         total_pages = math.ceil(len(self.__dataset) / page_size)
         return {
