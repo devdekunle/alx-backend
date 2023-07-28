@@ -11,8 +11,7 @@ Page numbers are 1-indexed, i.e. the first page is page 1.
 """
 import csv
 import math
-from typing import List
-from typing import Tuple
+from typing import List, Tuple, Dict, Union, Optional
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -61,3 +60,26 @@ class Server:
         page_index = index_range(page, page_size)
         return_list = self.dataset()
         return return_list[page_index[0]:page_index[1]]
+
+    def get_hyper(self, page: int = 1,
+                  page_size: int = 10
+                  ) -> Dict[str, Union[int, List[List], Optional[int]]]:
+        data = self.get_page(page, page_size)
+        returned_page_size = len(data)
+        all_data = self.dataset()
+        beg_to_currpage = page * page_size
+        rem_page = len(all_data) - len(all_data[:beg_to_currpage])
+        print(len(all_data))
+        print(len(all_data[:beg_to_currpage]))
+        print(rem_page)
+        next_page = page + 1 if rem_page < len(all_data) else None
+        prev_page = page - 1 if page > 1 else None
+        total_pages = math.ceil(len(self.__dataset) / page_size)
+        return {
+            'page_size': returned_page_size,
+            'page': page,
+            'data': data,
+            'next_page': next_page,
+            'prev_page': prev_page,
+            'total_pages': total_pages
+        }
