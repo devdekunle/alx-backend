@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-creating a flask app instance
+"""creating a flask app instance with configurations for i18n
 """
 from flask import Flask, render_template, request
 from flask_babel import Babel, _
