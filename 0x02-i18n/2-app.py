@@ -21,12 +21,14 @@ class Config:
 
 app.config.from_object(Config)
 
+
 @babel.localeselector
 def get_locale():
     """
     function to determine the best match with our supported languages
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/', methods=['GET'])
 def index_route():
@@ -38,7 +40,3 @@ def index_route():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='5000', debug=1)
-
-
-
-
