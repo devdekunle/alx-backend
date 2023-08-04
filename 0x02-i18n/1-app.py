@@ -13,7 +13,7 @@ class Config:
     """
     class to configure Babel for i18n
     """
-    LANGUAGE = ["en", "fr"]
+    LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
