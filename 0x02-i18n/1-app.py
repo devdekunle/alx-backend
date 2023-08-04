@@ -9,6 +9,7 @@ from flask_babel import Babel
 app = Flask(__name__)
 babel = Babel(app)
 
+
 class Config:
     """
     class to configure Babel for i18n
@@ -17,7 +18,9 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+
 app.config.from_object(Config)
+
 
 @app.route('/', methods=['GET'])
 def index_route():
@@ -25,7 +28,6 @@ def index_route():
     an index page for testing i18n
     """
     return render_template('1-index.html')
-
 
 
 if __name__ == "__main__":
