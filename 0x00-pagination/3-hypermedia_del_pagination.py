@@ -47,7 +47,8 @@ class Server:
         assert index is None or index >= 0
         assert page_size > 0
 
-        dataset = self.dataset()
+        indexed_dataset = self.indexed_dataset()
+        assert index < len(indexed_dataset.keys())
 
         if index is None:
             index = 0
