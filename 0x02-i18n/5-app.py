@@ -2,7 +2,7 @@
 """creating a flask app instance with configurations for i18n
 """
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, _
+from flask_babel import Babel, gettext
 from typing import Dict, Union, Optional
 
 
