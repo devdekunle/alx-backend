@@ -28,6 +28,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user():
     """
     returns a user dictionary from users if login_as is passed as
@@ -39,12 +40,14 @@ def get_user():
         return users[user_id]
     return None
 
+
 @app.before_request
 def before_request():
     """
     use get_user to find a user and set it as a global on flask.g.user
     """
     g.user = get_user()
+
 
 @babel.localeselector
 def get_locale() -> str:
