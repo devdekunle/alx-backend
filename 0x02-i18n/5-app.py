@@ -35,10 +35,11 @@ def get_user():
     query string
     """
     user_id = request.args.get('login_as')
+    if not user_id:
+        return None
     user_id = int(user_id)
     if user_id and user_id in users:
         return users[user_id]
-    return None
 
 
 @app.before_request
